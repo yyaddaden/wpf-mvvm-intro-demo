@@ -1,11 +1,11 @@
-﻿<Window x:Class="temperature_conversion_app.Views.ResultWindow"
+﻿<Window x:Class="temperature_conversion_app_ef_core.Views.ResultWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:temperature_conversion_app.Views"
+        xmlns:local="clr-namespace:temperature_conversion_app_ef_core.Views"
         mc:Ignorable="d"
-        Title="Résultats" Height="200" Width="400" ResizeMode="CanMinimize" MinWidth="400" MinHeight="200" MaxWidth="400" MaxHeight="200" WindowStartupLocation="CenterScreen" Icon="/Views/resources/table-icon.png" >
+        Title="Résultats" Height="200" Width="420" ResizeMode="CanMinimize" MinWidth="420" MinHeight="200" MaxWidth="420" MaxHeight="200" WindowStartupLocation="CenterScreen" Icon="/Views/resources/table-icon.png" >
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Accueil" Command="{Binding StartCommand}">
@@ -34,13 +34,20 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Conversions}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,5,5,5" ItemsSource="{Binding Conversions}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectedItem="{Binding SelectedConversion}" >
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Unité initiale" Width="*" Binding="{Binding InitialMetric}" />
                     <DataGridTextColumn Header="Valeur initiale" Width="*" Binding="{Binding InitialValue}" />
                     <DataGridTextColumn Header="Unité finale" Width="*" Binding="{Binding FinalMetric}" />
                     <DataGridTextColumn Header="Valeur finale" Width="*" Binding="{Binding FinalValue}" />
+                    <DataGridTemplateColumn Header="Action" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Supprimer" Command="{Binding Path=DataContext.RemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" /> 
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

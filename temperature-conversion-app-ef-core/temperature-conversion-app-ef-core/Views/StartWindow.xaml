@@ -1,0 +1,29 @@
+﻿<Window x:Class="temperature_conversion_app_ef_core.Views.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:temperature_conversion_app_ef_core.Views"
+        mc:Ignorable="d"
+        Title="Accueil" Height="150" Width="400" ResizeMode="CanMinimize"  MinWidth="400" MinHeight="150" MaxWidth="400" MaxHeight="150" WindowStartupLocation="CenterScreen" Icon="/Views/resources/play-icon.png" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="0" Margin="5,5,5,5" VerticalContentAlignment="Center" Text="{Binding AddedUser, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Content="Ajouter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="5,5,5,5" Command="{Binding AddUserCommand}" />
+
+        <Label Content="Utilisateur :" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1" Margin="5,5,5,5" VerticalContentAlignment="Center" />
+        <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Margin="5,5,5,5" VerticalContentAlignment="Center" ItemsSource="{Binding Users}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectedValue="{Binding SelectedUser, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Button Content="Commencer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="2" Margin="5,5,5,5" Command="{Binding StartCommand}" />
+    </Grid>
+</Window>

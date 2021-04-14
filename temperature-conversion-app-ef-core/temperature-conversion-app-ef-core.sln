@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temperature-conversion-app-ef-core", "temperature-conversion-app-ef-core\temperature-conversion-app-ef-core.csproj", "{34D2559C-1C63-4AD5-8034-F45B41A8D4D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34D2559C-1C63-4AD5-8034-F45B41A8D4D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D2559C-1C63-4AD5-8034-F45B41A8D4D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D2559C-1C63-4AD5-8034-F45B41A8D4D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D2559C-1C63-4AD5-8034-F45B41A8D4D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6835AA60-459A-435C-8E54-6EBF178481E9}
+	EndGlobalSection
+EndGlobal
