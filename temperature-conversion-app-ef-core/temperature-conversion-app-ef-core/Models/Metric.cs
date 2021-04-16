@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace temperature_conversion_app_ef_core.Models
 {
@@ -12,7 +10,7 @@ namespace temperature_conversion_app_ef_core.Models
 
         public static List<string> GetMetrics()
         {
-            TemperatureConversionAppDbContext temperatureConversionAppDbContext = new TemperatureConversionAppDbContext();
+            TemperatureConversionDbContext temperatureConversionAppDbContext = new TemperatureConversionDbContext();
             List<string> metrics = temperatureConversionAppDbContext.Metrics.Select(m => m.Title).ToList();
             return metrics;
         }

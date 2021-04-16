@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Windows.Input;
 
-namespace temperature_conversion_app_ef_core.ViewModels
+namespace simple_task_manager_app.ViewModels
 {
     public class RelayCommand : ICommand
     {

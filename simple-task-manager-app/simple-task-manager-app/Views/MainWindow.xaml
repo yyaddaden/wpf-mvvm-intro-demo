@@ -1,0 +1,75 @@
+﻿<Window x:Class="simple_task_manager_app.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:simple_task_manager_app"
+        mc:Ignorable="d"
+        Title="Gestionnaire de Tâches" Height="300" Width="600" ResizeMode="CanMinimize" MinWidth="600" MinHeight="300" MaxWidth="600" MaxHeight="300" WindowStartupLocation="CenterScreen" Icon="{iconPacks:BootstrapIconsImage Kind=ListCheck}" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="245*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Column="0" Grid.Row="0" Margin="5,5,5,5" VerticalContentAlignment="Center" Text="{Binding AddedTaskName, UpdateSourceTrigger=PropertyChanged}" />
+
+        <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="0" Margin="5,5,5,5" VerticalContentAlignment="Center" ItemsSource="{Binding Priorities}" SelectedItem="{Binding AddedTaskPriority}" />
+
+        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="2" Margin="5,5,5,5" Command="{Binding AddTaskCommand}">
+            <StackPanel Orientation="Horizontal">
+                <iconPacks:PackIconBootstrapIcons Kind="CloudPlusFill" />
+                <TextBlock Text=" Ajouter" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="3" Margin="5,5,5,5" Command="{Binding SyncTasksCommand}">
+            <StackPanel Orientation="Horizontal">
+                <iconPacks:PackIconBootstrapIcons Kind="CloudArrowDownFill" />
+                <TextBlock Text=" Synchroniser" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
+        <DataGrid Margin="5,5,5,5" ItemsSource="{Binding Tasks, NotifyOnSourceUpdated=True}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectedItem="{Binding SelectedTask}" Grid.ColumnSpan="4" Grid.Row="1">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding TaskId}" />
+                <DataGridTextColumn Header="Priorité" Width="*" Binding="{Binding Priority}" />
+                <DataGridTextColumn Header="Titre" Width="*" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Statut" Width="*" Binding="{Binding Status}" />
+                <DataGridTemplateColumn Header="Action 1" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding Path=DataContext.RemoveTaskCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">
+                                <StackPanel Orientation="Horizontal">
+                                    <iconPacks:PackIconBootstrapIcons Kind="CloudMinusFill" />
+                                    <TextBlock Text=" Supprimer" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Action 2" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding Path=DataContext.CompleteTaskCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">
+                                <StackPanel Orientation="Horizontal">
+                                    <iconPacks:PackIconBootstrapIcons Kind="CloudCheckFill" />
+                                    <TextBlock Text=" Compléter" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace temperature_conversion_app_ef_core.Models
 {
-    class TemperatureConversionAppDbContext : DbContext
+    class TemperatureConversionDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Conversion> Conversions { get; set; }

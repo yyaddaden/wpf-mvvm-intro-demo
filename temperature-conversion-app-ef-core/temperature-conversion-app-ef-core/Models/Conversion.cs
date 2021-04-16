@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace temperature_conversion_app_ef_core.Models
 {
@@ -20,14 +16,14 @@ namespace temperature_conversion_app_ef_core.Models
 
         public static List<Conversion> GetConversions(User user)
         {
-            TemperatureConversionAppDbContext temperatureConversionAppDbContext = new TemperatureConversionAppDbContext();
+            TemperatureConversionDbContext temperatureConversionAppDbContext = new TemperatureConversionDbContext();
             List<Conversion> conversions = temperatureConversionAppDbContext.Conversions.Where(c => c.User.Name == user.Name).ToList();
             return conversions;
         }
 
         public static void AddConversion(Conversion conversion, User user)
         {
-            TemperatureConversionAppDbContext temperatureConversionAppDbContext = new TemperatureConversionAppDbContext();
+            TemperatureConversionDbContext temperatureConversionAppDbContext = new TemperatureConversionDbContext();
             user = temperatureConversionAppDbContext.Users.Where(u => u.Name == user.Name).First();
             conversion.UserId = user.UserId;
             temperatureConversionAppDbContext.Conversions.Add(conversion);
@@ -36,7 +32,7 @@ namespace temperature_conversion_app_ef_core.Models
 
         public static void RemoveConversion(int conversionId)
         {
-            TemperatureConversionAppDbContext temperatureConversionAppDbContext = new TemperatureConversionAppDbContext();
+            TemperatureConversionDbContext temperatureConversionAppDbContext = new TemperatureConversionDbContext();
             Conversion conversion = temperatureConversionAppDbContext.Conversions.Find(conversionId);
             temperatureConversionAppDbContext.Conversions.Remove(conversion);
             temperatureConversionAppDbContext.SaveChanges();

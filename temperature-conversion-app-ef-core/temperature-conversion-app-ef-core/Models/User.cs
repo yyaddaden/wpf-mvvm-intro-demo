@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace temperature_conversion_app_ef_core.Models
 {
@@ -21,14 +17,14 @@ namespace temperature_conversion_app_ef_core.Models
 
         public static List<User> GetUsers()
         {
-            TemperatureConversionAppDbContext temperatureConversionAppDbContext = new TemperatureConversionAppDbContext();
+            TemperatureConversionDbContext temperatureConversionAppDbContext = new TemperatureConversionDbContext();
             List<User> users = temperatureConversionAppDbContext.Users.ToList();
             return users;
         }
 
         public static void AddUser(User user)
         {
-            TemperatureConversionAppDbContext temperatureConversionAppDbContext = new TemperatureConversionAppDbContext();
+            TemperatureConversionDbContext temperatureConversionAppDbContext = new TemperatureConversionDbContext();
             temperatureConversionAppDbContext.Users.Add(user);
             temperatureConversionAppDbContext.SaveChanges();
         }

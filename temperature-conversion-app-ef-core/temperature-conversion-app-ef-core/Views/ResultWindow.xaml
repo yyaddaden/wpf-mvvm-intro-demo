@@ -3,24 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:temperature_conversion_app_ef_core.Views"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="Résultats" Height="200" Width="420" ResizeMode="CanMinimize" MinWidth="420" MinHeight="200" MaxWidth="420" MaxHeight="200" WindowStartupLocation="CenterScreen" Icon="/Views/resources/table-icon.png" >
+        Title="Résultats" Height="200" Width="460" ResizeMode="CanMinimize" MinWidth="460" MinHeight="200" MaxWidth="460" MaxHeight="200" WindowStartupLocation="CenterScreen" Icon="{iconPacks:BootstrapIconsImage Kind=CardList}" >
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Accueil" Command="{Binding StartCommand}">
                 <MenuItem.Icon>
-                    <Image Source="/Views/resources/play-icon.png"/>
+                    <iconPacks:PackIconBootstrapIcons Kind="HouseFill" />
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem Header="Conversion" Command="{Binding ConversionCommand}">
                 <MenuItem.Icon>
-                    <Image Source="/Views/resources/thermometer-icon.png"/>
+                    <iconPacks:PackIconBootstrapIcons Kind="ThermometerHalf" />
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem Header="Quitter" Command="{Binding QuitCommand}">
                 <MenuItem.Icon>
-                    <Image Source="/Views/resources/times-icon.png"/>
+                    <iconPacks:PackIconBootstrapIcons Kind="XCircleFill" />
                 </MenuItem.Icon>
             </MenuItem>
         </Menu>
@@ -44,7 +44,12 @@
                     <DataGridTemplateColumn Header="Action" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Supprimer" Command="{Binding Path=DataContext.RemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}" /> 
+                                <Button Command="{Binding Path=DataContext.RemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconBootstrapIcons Kind="TrashFill" />
+                                        <TextBlock Text=" Supprimer" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simple-task-manager-rest-api", "simple-task-manager-rest-api\simple-task-manager-rest-api.csproj", "{BEB1162F-FE7A-4F57-BF79-9F6B9DF94C99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEB1162F-FE7A-4F57-BF79-9F6B9DF94C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB1162F-FE7A-4F57-BF79-9F6B9DF94C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB1162F-FE7A-4F57-BF79-9F6B9DF94C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB1162F-FE7A-4F57-BF79-9F6B9DF94C99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A2EA872-8C16-4D0D-BFB5-B4ABED769DD5}
+	EndGlobalSection
+EndGlobal
